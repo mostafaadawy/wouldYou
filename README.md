@@ -4,7 +4,7 @@
     <img src="https://miro.medium.com/max/1200/1*i1yreXvK0kGrS9_uy5qKHQ.jpeg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">MyReads: A Book Lending App</h3>
+  <h3 align="center">Would You Rather App </h3>
 
   <p align="center">
     project_description
