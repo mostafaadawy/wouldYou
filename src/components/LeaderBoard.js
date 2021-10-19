@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import ScoreCard from './ScoreCard'
 import { connect } from 'react-redux'
+import { leaderHandleProps } from '../utils/connectFunctions'
+
 class LeaderBoard extends Component{
     render(){
         if (this.props.authUser === 'NONE') {
@@ -18,25 +20,6 @@ class LeaderBoard extends Component{
         )}
 }
 function mapStateToProps({authUser, users}){
-    const medal=[
-                    "https://img.icons8.com/emoji/96/000000/1st-place-medal-emoji.png",
-                    "https://img.icons8.com/emoji/96/000000/2nd-place-medal-emoji.png",
-                    "https://img.icons8.com/emoji/96/000000/3rd-place-medal-emoji.png",
-                    "https://img.icons8.com/color/96/000000/unlucky.png",
-                ]
-    const scoreList = Object.values(users).map((user)=>{
-       return{ id:user.id,answers: Object.values(user.answers).length, 
-        questions:user.questions.length,
-        avatar:user.avatarURL,
-        name:user.name,
-        score:Object.values(user.answers).length+user.questions.length,
-    }
-    }).sort((a, b) => b.score - a.score)
-
-    return{
-        authUser,
-        scoreList,
-        medal,
-    }
+    return leaderHandleProps({authUser, users})
 }
 export default connect(mapStateToProps) (LeaderBoard)

@@ -3,7 +3,7 @@ import 'semantic-ui-css/semantic.min.css'
 import { Progress } from 'semantic-ui-react'
 import { Redirect, NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-
+import { voteResultHandleProps } from '../utils/connectFunctions'
 class VoteResult extends Component{
  
 render(){
@@ -38,37 +38,6 @@ render(){
         }
 }
 function mapStateToProps({users, questions, authUser,},{match}){
-    const QID= match.params.QID
-    const Quest = questions[QID]
-    if(Quest === undefined){
-        return{
-            error404:true
-        }
-    }else{
-        const amIansweredOptionOne = Quest.optionOne.votes.includes(authUser)
-        const amIansweredOptionTwo = Quest.optionTwo.votes.includes(authUser)
-        const amIansweredThisQuestion= (amIansweredOptionOne || amIansweredOptionTwo)
-        const Op1=Quest.optionOne.votes.length
-        const Op2=Quest.optionTwo.votes.length
-        const totalVotes=Op1+Op2
-        const Op1Percentage = (Op1*100)/totalVotes
-        const Op2Percentage = (Op2*100)/totalVotes
-        const name=users[Quest.author].name
-        const avatar = users[Quest.author].avatarURL
-        const voteIcon = "https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-vote-voting-justicon-lineal-color-justicon.png"
-        return{
-            totalVotes,
-            amIansweredOptionOne,
-            amIansweredOptionTwo,
-            amIansweredThisQuestion,
-            Op1Percentage,
-            Op2Percentage,
-            name,
-            avatar,
-            voteIcon,
-            error404:false,
-        }  
-        }
-    
+    return voteResultHandleProps ({users, questions, authUser,},{match})
 }
 export default withRouter(connect(mapStateToProps)(VoteResult)) 

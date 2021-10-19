@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, NavLink, withRouter } from 'react-router-dom'
+import { questionHandleProps } from '../utils/connectFunctions'
+
 class Question extends Component {
 
 render(){
   if(this.props.error404) return <Redirect to='/error404'/>
-  const {questionId, isAnswered, users,questions}=this.props;
-  const userName = users[questions[questionId].author].name;
-  const userAvatar = users[questions[questionId].author].avatarURL;
-  const optionOne=questions[questionId].optionOne.text
-  const optionTwo=questions[questionId].optionTwo.text
+  const {questionId, isAnswered, userAvatar,optionOne, optionTwo, userName}=this.props;
   return(
     <div className='row'>
       <div className='card-outer'>
@@ -32,17 +30,6 @@ render(){
 }
 }
 function mapStateToProps({questions, users},{isAnswered,questionId}){
-  try{
-    return{
-      error404:false,
-      questions,
-      users,
-      isAnswered,
-      questionId,
-    }
-  }catch(e){}
-  return{
-    error404:true,
-  }
+  return questionHandleProps({questions, users},{isAnswered,questionId})
 }
 export default withRouter(connect(mapStateToProps)(Question))

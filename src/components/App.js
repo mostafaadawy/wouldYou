@@ -6,7 +6,7 @@ import ErrorPage from './ErrorPage'
 import Landing from './Landing';
 import Sign from './Sign';
 import CustomLoading from './CustomLoading';
-import { decideStatus, } from '../utils/retraits'
+import { decideStatus, } from '../utils/connectFunctions'
 
 class App extends Component {
  componentDidMount(){
@@ -22,7 +22,7 @@ class App extends Component {
     const customSwitch=(status)=>{
       switch(status) {
         case 0 || 1:
-          return chkURL.includes('/vote')?<Redirect to='/error404'/>: <Sign/>
+          return chkURL.includes('/vote')?<Redirect to='/error404'/>:<Sign/>
         case 2:
           return <Landing/> 
         default:

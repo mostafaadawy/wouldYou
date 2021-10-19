@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {connect } from 'react-redux'
 import { handleAnswer } from '../actions/questions'
 import { NavLink, withRouter } from 'react-router-dom'
+import { voteHandleProps } from '../utils/connectFunctions'
+
 class Vote extends Component{
         state = {
             selectedOption: "optionOne",
@@ -11,9 +13,6 @@ class Vote extends Component{
           selectedOption: event.target.value
         });
       }
-    
-      
-    
 render(){
   if(this.props.error404) return this.props.history.push('/error404')
   const {userName,userAvatar, optionOne, optionTwo}=this.props
@@ -59,25 +58,7 @@ render(){
 }
 }
 function mapStateToProps({users,questions,authUser},{match}){
-    const qlist=Object.keys(questions)
-    const QID = match.params.QID
-    const error404 = !qlist.includes(match.params.QID)
-    if(error404){
-      return {error404:true, }
-    }
-    const Quest  = questions[QID]
-    const user = users[Quest.author]
-    return {
-      error404,
-      id:Quest.id,
-      userName:user.name,
-      userAvatar:user.avatarURL,
-      optionOne:Quest.optionOne.text,
-      optionTwo:Quest.optionTwo.text,
-      authUser:authUser,
-      qlist:Object.keys(questions),
-    }
-    
+    return voteHandleProps({users,questions,authUser},{match})
 }
 function mapDispatchToProps(dispatch){
   return{

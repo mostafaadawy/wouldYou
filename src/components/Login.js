@@ -35,11 +35,8 @@ class Login extends Component{
 render(){
   const { cred } = this.props
   let usernames; 
-  if(cred){
-     usernames = cred.map((c)=>(c.username)) 
-  }else{
-     usernames=[];
-  }
+  if(cred){usernames = cred.map((c)=>(c.username)) 
+  }else{ usernames=[]}
   usernames = ['Select',...usernames]
   if (this.props.authUser !== 'NONE') {
     return <Redirect to="/" />;
@@ -81,14 +78,8 @@ render(){
 }
 }
 function mapStateToProps({ cred, authUser }) {
-  return {
-    cred,
-    authUser,
-    isLoading: cred.length>0? false:true,
-  };
-  
+  return {cred, authUser, isLoading: cred.length>0? false:true};
 }
-
 function mapDispatchToProps(dispatch) {
   return {
     handleReceiveCred: () => dispatch(handleReceiveCred()),
