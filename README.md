@@ -14,6 +14,8 @@
 
 fwd-fend-sec-proj App is simple web site for practicing react js and redux, it is simply act as a polling game where you have to make your own poll and voting for existing polls and upon youtr share you get your score which defines who is the winner and the order of the users score.this project is second project as a requirement to the nanodegree course presented by udicity
 
+#   password: "1234" for existing users
+
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
