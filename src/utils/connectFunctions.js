@@ -30,9 +30,9 @@ export function homeHandleProps({questions, authUser},{isAns}){
     let answeredQuestions=[]
     let unAnsweredQuestions=[]
     try{
-      const allIds= Object.keys(questions)
-       answeredQuestions=Object.values(questions)
-      .filter(question => (question.optionOne.votes.includes(authUser)) || (question.optionTwo.votes.includes(authUser)))
+      const sortedQuestions = Object.values(questions).sort((a,b)=> b.timestamp -a.timestamp)
+      const allIds= sortedQuestions.map(c=>c.id)
+       answeredQuestions=sortedQuestions.filter(question => (question.optionOne.votes.includes(authUser)) || (question.optionTwo.votes.includes(authUser)))
       .map(que=>que.id)
   
       unAnsweredQuestions=allIds.filter(id => !answeredQuestions.includes(id))
@@ -112,7 +112,6 @@ export function voteResultHandleProps ({users, questions, authUser,},{match}){
     }else{
         const amIansweredOptionOne = Quest.optionOne.votes.includes(authUser)
         const amIansweredOptionTwo = Quest.optionTwo.votes.includes(authUser)
-        const amIansweredThisQuestion= (amIansweredOptionOne || amIansweredOptionTwo)
         const Op1=Quest.optionOne.votes.length
         const Op2=Quest.optionTwo.votes.length
         const totalVotes=Op1+Op2
@@ -125,9 +124,10 @@ export function voteResultHandleProps ({users, questions, authUser,},{match}){
             totalVotes,
             amIansweredOptionOne,
             amIansweredOptionTwo,
-            amIansweredThisQuestion,
             Op1Percentage,
             Op2Percentage,
+            Op1,
+            Op2,
             name,
             avatar,
             voteIcon,

@@ -337,6 +337,21 @@ h4{
   padding:2px;
   margin-bottom: 5px;
 }
+
+.result-container h5{
+  color: rgb(45, 63, 98);
+  margin: 1px;
+}
+.my-result-container h5{
+  color: rgb(45, 63, 98);
+  margin: 1px;
+}
+.vote-icon{
+  max-width:35px;
+  margin:0px;
+  margin-left: 10px;
+}
+
 .your-vote{
   color:rgb(240, 170, 61);
   font-weight: bold;

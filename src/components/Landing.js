@@ -37,7 +37,7 @@ render(){
                     <Route exact path="/home/answered">
                         <Home isAns={1}/>
                     </Route>
-                    <Route exact path="/new-question">
+                    <Route exact path="/add">
                         <NewQuestion />
                     </Route>
                     <Route exact path="/leader-board">
@@ -48,8 +48,8 @@ render(){
                         <VoteResult/>
                       </Route>
                     }    
-                    {(chkURL.includes('vote')&&(!chkURL.includes('result')))&& 
-                      <Route path="/vote/:QID">
+                    {chkURL.includes('questions')&& 
+                      <Route path="/questions/:QID">
                         <Vote/>
                       </Route>
                     }   

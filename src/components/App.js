@@ -50,7 +50,7 @@ class App extends Component {
           <Route exact path="/home/answered">
               {customSwitch(status)}
           </Route>
-          <Route exact path="/new-question">
+          <Route exact path="/add">
               {customSwitch(status)}
           </Route>
           <Route exact path="/leader-board">
@@ -61,8 +61,8 @@ class App extends Component {
               {customSwitch(status)}
             </Route>
           }    
-          {(chkURL.includes('vote')&&(!chkURL.includes('result')))&& 
-            <Route path="/vote/:QID">
+          {chkURL.includes('questions')&& 
+            <Route path="/questions/:QID">
               {customSwitch(status)}
             </Route>
           }    

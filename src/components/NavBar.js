@@ -26,7 +26,7 @@ class NavBar extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink exact to="/new-question" activeClassName="active" className="nav-links" >
+                <NavLink exact to="/add" activeClassName="active" className="nav-links" >
                   ❓ New Poll
                 </NavLink>
               </li>

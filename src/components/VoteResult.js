@@ -8,7 +8,7 @@ class VoteResult extends Component{
  
 render(){
     if(this.props.error404) return <Redirect to='/error404'/>
-    const {amIansweredThisQuestion, Op1Percentage, 
+    const {Op1,Op2, Op1Percentage, 
         Op2Percentage, name, avatar,voteIcon, totalVotes,
         amIansweredOptionOne,amIansweredOptionTwo}=this.props
     return(
@@ -20,17 +20,17 @@ render(){
             <div className='card-form'>
                 <div className='card-avatar' style={{backgroundImage : `URL(${avatar})`,alt:'AVATAR',}}></div>
                         <div className='card-details_result'>
-                            <h2>{amIansweredThisQuestion? 'Thanks for Votting ❤':'waiting your vote ⌛'}</h2>
-                            <h2>Would you Rather?</h2>
+                            <h2>Would you Rather? ({totalVotes }) <img className='vote-icon' alt='AVATAR' src={voteIcon}/></h2>
 							<div className={amIansweredOptionOne?"my-result-container":"result-container"}  >
                                 <span>Eat fresh food </span> {amIansweredOptionOne? <span className='your-vote'>'😉your vote'</span>:''}
+                                <h5>{Op1} of {totalVotes} selected Option One</h5>
                                 <Progress percent={Op1Percentage} progress/>
 							</div>
                             <div className={amIansweredOptionTwo?"my-result-container":"result-container"}  >
                                 <span>Eat fast food</span> {amIansweredOptionTwo? <span className='your-vote'>'😉your vote'</span>:''}
+                                <h5>{Op2} of {totalVotes} selected Option Two</h5>
                                 <Progress percent={Op2Percentage} progress/>
 							</div>
-                            <h2>{totalVotes } <img alt='AVATAR' src={voteIcon}/></h2>
                         </div>
                     </div>
                 </div>

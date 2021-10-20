@@ -20,7 +20,8 @@ render(){
     event.preventDefault()
     const info = {QID:this.props.id, authUser:this.props.authUser, answer:this.state.selectedOption}
     this.props.handleAnswer(info)
-    this.props.history.push('/home/answered')
+    const linkUrl= `/vote-result/${this.props.id}`
+    this.props.history.push(linkUrl)
   }
     return(
           <div className='card-outer'>
