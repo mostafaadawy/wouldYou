@@ -3,6 +3,7 @@ import ImageInput from '../utils/ImageInpute'
 import { connect } from 'react-redux'
 import { handleNewUser } from '../actions/users'
 import { withRouter } from 'react-router-dom'
+import { handleReceiveCred } from "../actions/shared";
 class Register extends Component{
   state = {
     password : "",
@@ -19,6 +20,7 @@ onSubmitForm=(event)=>{
   event.preventDefault();
   const {dispatch}=this.props
   dispatch(handleNewUser({id:this.state.id, name:this.state.name, password:this.state.password, imageUrl:this.state.imageUrl}))
+  dispatch(handleReceiveCred())
   this.props.history.push('/')
 }
 imageChange=(url)=>

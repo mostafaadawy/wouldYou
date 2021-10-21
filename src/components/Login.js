@@ -1,13 +1,10 @@
-import React, { Component, Fragment } from 'react'
-import {NavLink, Redirect} from 'react-router-dom'
+import React, { Component } from 'react'
+import {NavLink} from 'react-router-dom'
 import { connect } from "react-redux";
-import { handleReceiveCred } from "../actions/shared";
-import CustomLoading  from "./CustomLoading"
 import { setAuthUser } from '../actions/authUser'
+import { setStatus } from "../actions/shared";
+import { handleGetAllData } from '../actions/shared'
 class Login extends Component{
-  componentDidMount() {
-    try{this.props.handleReceiveCred()}catch(e){alert(e)}
-  }
     state = {
         password : "",
         selectedUser : '',
@@ -38,12 +35,8 @@ render(){
   if(cred){usernames = cred.map((c)=>(c.username)) 
   }else{ usernames=[]}
   usernames = ['Select',...usernames]
-  if (this.props.authUser !== 'NONE') {
-    return <Redirect to="/" />;
-  }
+
     return(
-      <Fragment>
-      {this.props.isLoading? <CustomLoading/>:
         <form  onSubmit={this.onSubmitForm} id="loginform">
         <h2>Login</h2>
         <div className="row">
@@ -72,18 +65,19 @@ render(){
         <NavLink exact to="/register">New to game</NavLink>
         </div>
       </form>
-      }
-      </Fragment>
     )
 }
 }
-function mapStateToProps({ cred, authUser }) {
-  return {cred, authUser, isLoading: cred.length>0? false:true};
+function mapStateToProps({ cred }) {
+  return {cred};
 }
 function mapDispatchToProps(dispatch) {
   return {
-    handleReceiveCred: () => dispatch(handleReceiveCred()),
-    handleLogin: (id) => dispatch(setAuthUser(id)),
+    handleLogin: (id) => {
+      dispatch(setAuthUser(id))
+      dispatch(setStatus(1))
+      dispatch(handleGetAllData())
+    },
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

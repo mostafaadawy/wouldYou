@@ -19,7 +19,7 @@ render(){
           <div className='card-details center'>
             <h2>Would you Rather?</h2>
             <h4 style={{fontFamily:'sans-serif'}}>🔵{optionOne} 🔵 {optionTwo}</h4>
-            <NavLink exact to={isAnswered?  `/vote-result/${questionId}`:`/questions/${questionId}`}>
+            <NavLink exact to={`/questions/${questionId}`}>
               <button>{isAnswered?'View Result':'Vote'}</button>
             </NavLink>
           </div>

@@ -2,10 +2,12 @@ import React, { Component } from "react"
 import { withRouter, NavLink } from "react-router-dom"
 import { connect } from "react-redux"
 import { setAuthUser } from '../actions/authUser'
+import { setStatus } from "../actions/shared";
 class NavBar extends Component {
   handleLogout=()=>{
     const { dispatch } =this.props 
     dispatch(setAuthUser('NONE'))
+    dispatch(setStatus(0))
   }  
 
   render() {
@@ -21,7 +23,7 @@ class NavBar extends Component {
             </div>
             <ul className="nav-menu">
               <li className="nav-item">
-                <NavLink exact to="/home" activeClassName="active" className="nav-links" >
+                <NavLink exact to="/pol/unanswered" activeClassName="active" className="nav-links" >
                   💒 Home
                 </NavLink>
               </li>

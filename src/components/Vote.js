@@ -14,19 +14,20 @@ class Vote extends Component{
         });
       }
 render(){
-  if(this.props.error404) return this.props.history.push('/error404')
+  if(this.props.error404) return this.props.history.push('/not-found')
   const {userName,userAvatar, optionOne, optionTwo}=this.props
  const formSubmit=(event)=>{
     event.preventDefault()
     const info = {QID:this.props.id, authUser:this.props.authUser, answer:this.state.selectedOption}
     this.props.handleAnswer(info)
-    const linkUrl= `/vote-result/${this.props.id}`
+    const questionId=this.props.id
+    const linkUrl= `/questions/${questionId}`
     this.props.history.push(linkUrl)
   }
     return(
           <div className='card-outer'>
             <div className='card-header'>
-            <NavLink className='close-card' to="/home"></NavLink>
+            <NavLink className='close-card' to="/pol"></NavLink>
                 <h3>Asked by: {userName}</h3>
               </div>  
               <form onSubmit={formSubmit} className='card-form' >
