@@ -1,7 +1,8 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="https://miro.medium.com/max/1200/1*i1yreXvK0kGrS9_uy5qKHQ.jpeg" alt="Logo" width="80" height="80">
+![image](https://user-images.githubusercontent.com/43582900/138351772-40bbbd25-9a97-4c29-b999-ca6db47447ac.png)
+
   </a>
 
   <h3 align="center">Would You Rather App </h3>
