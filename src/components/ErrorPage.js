@@ -2,12 +2,9 @@
 import React,{ Component } from "react"
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { setAuthUser } from '../actions/authUser'
 class ErrorPage extends Component {
   handleRedirect=()=>{
-    const {dispatch}=this.props
-    dispatch(setAuthUser('NONE'))
-    this.props.history.push('/')
+    this.props.history.push('/login')
   }
     render(){
     return(

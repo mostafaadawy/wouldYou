@@ -1,31 +1,3 @@
-export function decideStatus({cred, authUser}){
-  let status =0; //0-no data-1-author is setted up-2-logged in 3-error404
-  if(authUser===undefined){
-      status=0;
-  }else if(authUser==='NONE'){
-      if(cred.length>0){
-          const userList = cred.map(c=>c.username)
-          if(userList.includes(authUser)){
-              status=2;
-          }else{
-              status=1;
-          }
-      }else{
-          status=1;
-      }  
-  }else if(cred.length>0){
-      const userList = cred.map(c=>c.username)
-      if(userList.includes(authUser)){
-          status=2;
-      }else{
-          status=1;
-      }
-  }
-  return{
-      status,
-  }
-}
-
 export function homeHandleProps({questions, authUser},{isAns}){
     let answeredQuestions=[]
     let unAnsweredQuestions=[]
@@ -83,15 +55,15 @@ export function questionHandleProps({questions, users},{isAnswered,questionId}){
 
 export function voteHandleProps({users,questions,authUser},{match}){
     const qlist=Object.keys(questions)
-    const QID = match.params.QID
-    const error404 = !qlist.includes(match.params.QID)
-    if(error404){
-      return {error404:true, }
+    const QID = match.params.questionId
+    const notFound = !qlist.includes(match.params.questionId)
+    if(notFound){
+      return {notFound:true, }
     }
     const Quest  = questions[QID]
     const user = users[Quest.author]
     return {
-      error404,
+      notFound,
       id:Quest.id,
       userName:user.name,
       userAvatar:user.avatarURL,
@@ -103,11 +75,11 @@ export function voteHandleProps({users,questions,authUser},{match}){
 }
 
 export function voteResultHandleProps ({users, questions, authUser,},{match}){
-    const QID= match.params.QID
+    const QID= match.params.questionId
     const Quest = questions[QID]
     if(Quest === undefined){
         return{
-            error404:true
+            notFound:true
         }
     }else{
         const amIansweredOptionOne = Quest.optionOne.votes.includes(authUser)
@@ -131,7 +103,7 @@ export function voteResultHandleProps ({users, questions, authUser,},{match}){
             name,
             avatar,
             voteIcon,
-            error404:false,
+            notFound:false,
         }  
         }
 }

@@ -20,7 +20,7 @@ class NewQuestion extends Component {
           optionTwo:this.state.optionTwo,
         }
         this.props.handleQuestion(info)
-        this.props.history.push('/home')
+        this.props.history.push('/pol/unanswered')
       }
     
   render(){

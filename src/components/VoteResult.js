@@ -7,14 +7,14 @@ import { voteResultHandleProps } from '../utils/connectFunctions'
 class VoteResult extends Component{
  
 render(){
-    if(this.props.error404) return <Redirect to='/error404'/>
+    if(this.props.error404) return <Redirect to='/not-found'/>
     const {Op1,Op2, Op1Percentage, 
         Op2Percentage, name, avatar,voteIcon, totalVotes,
         amIansweredOptionOne,amIansweredOptionTwo}=this.props
     return(
         <div className='card-outer'>
             <div className='card-header'>
-                <NavLink className='close-card' to="/home/answered"></NavLink>
+                <NavLink className='close-card' to="/pol/answered"></NavLink>
                 <h3 style={{margin : 8}}>Asked by: {name}</h3>
             </div>
             <div className='card-form'>
@@ -24,12 +24,12 @@ render(){
 							<div className={amIansweredOptionOne?"my-result-container":"result-container"}  >
                                 <span>Eat fresh food </span> {amIansweredOptionOne? <span className='your-vote'>'😉your vote'</span>:''}
                                 <h5>{Op1} of {totalVotes} selected Option One</h5>
-                                <Progress percent={Op1Percentage} progress/>
+                                <Progress percent={Op1Percentage.toFixed(2)} progress/>
 							</div>
                             <div className={amIansweredOptionTwo?"my-result-container":"result-container"}  >
                                 <span>Eat fast food</span> {amIansweredOptionTwo? <span className='your-vote'>'😉your vote'</span>:''}
                                 <h5>{Op2} of {totalVotes} selected Option Two</h5>
-                                <Progress percent={Op2Percentage} progress/>
+                                <Progress percent={Op2Percentage.toFixed(2)} progress/>
 							</div>
                         </div>
                     </div>
