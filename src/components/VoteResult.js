@@ -7,7 +7,7 @@ import { voteResultHandleProps } from '../utils/connectFunctions'
 class VoteResult extends Component{
  
 render(){
-    if(this.props.error404) return <Redirect to='/not-found'/>
+    if(this.props.notFound) return <Redirect to='/not-found'/>
     const {Op1,Op2, Op1Percentage, 
         Op2Percentage, name, avatar,voteIcon, totalVotes,
         amIansweredOptionOne,amIansweredOptionTwo}=this.props
