@@ -13,6 +13,10 @@
 
 This project is simply a polling and voting game, it just begins such as any application by logging for saved users or registration for the new gamer, the main dashboard is the home page which includes two tabs open in default in unanswered questions or required polls for voting, while the other tab includes the answered  or voted questions. Simply you can redirect to the vote to make or to result to see which option you selected before and the percentage of the polling or votes for every option. The highest score is reserved for the user who make many polls and vote for many polls. Logout redirect you and remove saved credentials that was authenticated for the current or recently logged out user
 
+
+https://user-images.githubusercontent.com/43582900/138363304-6ed1244e-8d95-4e2c-9696-1d9f76c8af0d.mp4
+
+
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
