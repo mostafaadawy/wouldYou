@@ -6,7 +6,7 @@ import { questionHandleProps } from '../utils/connectFunctions'
 class Question extends Component {
 
 render(){
-  if(this.props.error404) return <Redirect to='/error404'/>
+  if(this.props.notFound) return <Redirect to='/not-found'/>
   const {questionId, isAnswered, userAvatar,optionOne, optionTwo, userName}=this.props;
   return(
     <div className='row'>

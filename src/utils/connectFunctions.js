@@ -40,7 +40,7 @@ return{
 export function questionHandleProps({questions, users},{isAnswered,questionId}){
     try{
         return{
-          error404:false,
+          notFound:false,
           isAnswered,
           userName: users[questions[questionId].author].name,
           userAvatar: users[questions[questionId].author].avatarURL,
@@ -49,7 +49,7 @@ export function questionHandleProps({questions, users},{isAnswered,questionId}){
         }
       }catch(e){}
       return{
-        error404:true,
+        notFound:true,
       }
 }
 
@@ -63,7 +63,7 @@ export function voteHandleProps({users,questions,authUser},{match}){
     const Quest  = questions[QID]
     const user = users[Quest.author]
     return {
-      notFound,
+      notFound:false,
       id:Quest.id,
       userName:user.name,
       userAvatar:user.avatarURL,

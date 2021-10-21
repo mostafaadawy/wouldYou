@@ -14,7 +14,7 @@ class Vote extends Component{
         });
       }
 render(){
-  if(this.props.error404) return this.props.history.push('/not-found')
+  if(this.props.notFound) return this.props.history.push('/not-found')
   const {userName,userAvatar, optionOne, optionTwo}=this.props
  const formSubmit=(event)=>{
     event.preventDefault()
