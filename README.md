@@ -51,6 +51,7 @@ https://user-images.githubusercontent.com/43582900/138363304-6ed1244e-8d95-4e2c-
 <li><a href="#useful-sites-and-references">Useful Sites and References </a></li>
 <li><a href="#shaking-tree-and-making-clean-code">Shaking Tree and making clean code</a></li>
 <li><a href="#udacity-review-and-modifications">Udacity Review and Modifications</a></li>
+<li><a href="#udacity-review-Project-acceptance">Udacity Review Project Acceptance</a></li>
 <li><a href="#contact">Contact</a></li>
 <li><a href="#refrenceces">Refrenceces</a></li>
 </ol>
@@ -509,6 +510,11 @@ The first bug actually related to what is called store persist where every time 
 * Second solution was to solve this routing and different status issue by making custom routing function that can be considered high order component that conditionally upon status make different routes and returning f required components with its props right. Second solution was harder but I prefer it and I did it. 
 
 * i also get sugesstion to use component unstead of class in some cases we dont need class when and and advantages of component are listed [here](https://blog.logrocket.com/react-functional-components-3-advantages-and-why-you-should-use-them-a570c83adb5e/)
+
+
+## Udacity Review Project Acceptance
+
+Here is the [acceptance review](https://review.udacity.com/#!/reviews/3234952)
 
 ## Contact
 
