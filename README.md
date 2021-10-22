@@ -57,7 +57,6 @@ https://user-images.githubusercontent.com/43582900/138363304-6ed1244e-8d95-4e2c-
 </ol>
 </details>
 
-
 ## About This Project
 
 This project is a requirement for the free FWD-UDACITY Advanced Front-End Web Development Nanodegree Program. Its implementation criteria is restricted and wrapped with the described rules from this program’s project According to the [rubric](https://review.udacity.com/#!/rubrics/1567/view) reference. Another work frame that we are followed was the [starter](https://github.com/udacity/reactnd-project-would-you-rather-starter) project which include just server database simulator file _DATA.js and readme which described the data signature. According to the course the very correlated base project introduced by the tutor of the course was [chirper](https://github.com/oahmaro/chriper-app) or tweeter clone 
