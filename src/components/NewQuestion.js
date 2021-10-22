@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {handleQuestion} from '../actions/questions'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 class NewQuestion extends Component {
   state={
     optionOne:'',
@@ -24,6 +24,9 @@ class NewQuestion extends Component {
       }
     
   render(){
+    if(this.props.notFound){
+      return <Redirect to='/'/>
+    } 
     return(
       <div className='row'>
         <div className='card-tabe-list'>
@@ -49,11 +52,20 @@ class NewQuestion extends Component {
 }
 }
 function mapStateToProps({authUser, users}){
-  const userName = users[authUser].name
-  return{
-    authUser,
-    userName,
+  try{
+    const userName = users[authUser].name
+    return{
+      authUser,
+      userName,
+      notFound:false,
+    }
+  }catch(e){
+    return{
+      notFound:true,
+    }
   }
+ 
+ 
 }
 function mapDispatchToProps(dispatch){
   return{
