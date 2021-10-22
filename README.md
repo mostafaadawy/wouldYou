@@ -20,8 +20,7 @@ https://user-images.githubusercontent.com/43582900/138363304-6ed1244e-8d95-4e2c-
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <li><a href="#what-is-new">About this project</a></li>
+<ol>
 <li><a href="#about-this-project">About this project</a></li>
 <li><a href="#user-credentials">User Credentials</a></li>
 <li><a href="#prerequisites">Prerequisites</a></li>
